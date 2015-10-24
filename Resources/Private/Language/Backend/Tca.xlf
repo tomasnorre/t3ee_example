@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version='1.2'>
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-10-21T14:43:57Z" product-name="t3ee_example">
+		<header/>
+		<body>
+			<!-- Domain Model Talk -->
+			<trans-unit id="tx_t3eeexample_domain_model_talk.name">
+				<source>Name of the talk</source>
+			</trans-unit>
+			<trans-unit id="tx_t3eeexample_domain_model_talk.date_time">
+				<source>Date and Time of talk</source>
+			</trans-unit>
+			<trans-unit id="tx_t3eeexample_domain_model_talk.speaker">
+				<source>Speaker</source>
+			</trans-unit>
+
+			<!-- Domain Model Speaker -->
+			<trans-unit id="tx_t3eeexample_domain_model_speaker.name">
+				<source>Name of the speaker</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
