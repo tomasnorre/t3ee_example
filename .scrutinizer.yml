@@ -1,10 +1,10 @@
 filter:
     excluded_paths:
         - 'Tests/*'
+        - 'Documentation/*'
     paths:
         - 'Classes/*'
         - 'Configuration/*'
-        - 'Documentation/*'
 
 tools:
 

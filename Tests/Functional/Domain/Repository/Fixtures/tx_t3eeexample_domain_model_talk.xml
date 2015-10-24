@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+	<tx_t3eeexample_domain_model_talk>
+		<uid>23</uid>
+		<pid>345</pid>
+		<name>My life in Springfield</name>
+		<date_time>1445538625</date_time>
+		<speaker>1</speaker>
+	</tx_t3eeexample_domain_model_talk>
+	<tx_t3eeexample_domain_model_talk>
+		<uid>45</uid>
+		<pid>345</pid>
+		<name>Simpsons The Movie - With my eyes</name>
+		<date_time>1445538625</date_time>
+		<speaker>2</speaker>
+	</tx_t3eeexample_domain_model_talk>
+</dataset>

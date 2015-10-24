@@ -4,7 +4,7 @@
   "description": "Demo Extension for the T3EE",
   "license": ["GPL-2.0+"],
   "require": {
-    "typo3/cms-core": "~6.2.14|>=7.4.0,<8.0"
+    "typo3/cms-core": "~6.2.0|>=7.4.0,<8.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.7.0"
@@ -19,7 +19,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "TomasNorre\\T3ee\\": "Classes",
+      "TNM\\T3eeExample\\": "Classes",
       "TYPO3\\CMS\\Core\\Tests\\": ".Build/vendor/typo3/cms/typo3/sysext/core/Tests/"
     }
   },
@@ -30,7 +30,7 @@
   "scripts": {
     "post-autoload-dump": [
       "mkdir -p .Build/Web/typo3conf/ext/",
-      "[ -L .Build/Web/typo3conf/ext/ext_scaffold ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/ext_scaffold"
+      "[ -L .Build/Web/typo3conf/ext/t3ee_example ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/t3ee_example"
     ]
   },
   "extra": {
