@@ -97,7 +97,7 @@ $GLOBALS['TCA']['tx_t3eeexample_domain_model_talk'] = array(
 			'config' => array(
 				'type' => 'select',
 				'items' => Array (
-					Array("-- Please Select --",0),
+					Array("-- Please Select --", 0),
 				),
 				'foreign_table' => 'tx_t3eeexample_domain_model_speaker',
 				'size' => 1,

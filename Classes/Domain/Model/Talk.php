@@ -5,7 +5,7 @@ namespace TNM\T3eeExample\Domain\Model;
  * Class Talk
  * @package TNM\T3eeExample\Domain\Model
  */
-class Talk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity{
+class Talk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
 	 * @var string
