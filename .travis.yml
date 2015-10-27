@@ -13,13 +13,13 @@ env:
 
 matrix:
   #exclude:
-  #  - env: TYPO3_BRANCH=master COVERAGE=0
+  #  - env: TYPO3_VERSION=master COVERAGE=0
   #    php: 5.3
-  #  - env: TYPO3_BRANCH=master COVERAGE=0
+  #  - env: TYPO3_VERSION=master COVERAGE=0
   #    php: 5.4
   include:
     - php: 5.5
-      env: TYPO3_VERSION=7.4.0 COVERAGE=1
+      env: TYPO3_VERSION=7.5.0 COVERAGE=1
   allow_failures:
     - env: TYPO3_VERSION=dev-master COVERAGE=0
     - php: 7.0
@@ -53,6 +53,13 @@ before_install:
 
 before_script:
   - composer require typo3/cms=$TYPO3_VERSION
+  # Install TypoScript Linter
+  - mkdir -p scripts
+  - cd scripts
+  - git clone https://github.com/tomasnorre/typo3-typoscript-lint.git tslint
+  - cd tslint
+  - composer install
+  - cd ../../
   # Restore composer.json
   - git checkout composer.json
   - export TYPO3_PATH_WEB=$PWD/.Build/Web
@@ -65,12 +72,16 @@ script:
   - >
     echo;
     echo "Running php lint";
-    find . -name \*.php ! -path "./.Build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
+    find . -name \*.php ! -path "./.Build/*" ! -path "./scripts/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
   - >
     echo;
     echo "Running JavaScript lint";
     npm install -g jslint;
     find Resources/Public/JavaScript/ -name '*.js' -type f | xargs jslint
+  - >
+    echo;
+    echo "Running TypoScript lint";
+    find Configuration/TypoScript/ -name '*.ts' -type f | xargs scripts/tslint/./typoscript-lint -e -c Misc/Validation/tslint.yml
   - >
     if [[ "$COVERAGE" == "0" ]]; then
       echo;
