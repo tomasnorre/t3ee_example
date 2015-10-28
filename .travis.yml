@@ -1,22 +1,23 @@
 language: php
 
 php:
+  - 5.4
   - 5.5
   - 5.6
   - 7.0
   - hhvm
 
 env:
-  - TYPO3_VERSION=7.4 COVERAGE=0
-  - TYPO3_VERSION=7.5 COVERAGE=0
+  - TYPO3_VERSION=6.2.15 COVERAGE=0
+  - TYPO3_VERSION=7.5.0 COVERAGE=0
   - TYPO3_VERSION=dev-master COVERAGE=0
 
 matrix:
-  #exclude:
-  #  - env: TYPO3_VERSION=master COVERAGE=0
-  #    php: 5.3
-  #  - env: TYPO3_VERSION=master COVERAGE=0
-  #    php: 5.4
+  exclude:
+    - env: TYPO3_VERSION=7.5.0 COVERAGE=0
+      php: 5.4
+    - env: TYPO3_VERSION=dev-master COVERAGE=0
+      php: 5.4
   include:
     - php: 5.5
       env: TYPO3_VERSION=7.5.0 COVERAGE=1
@@ -29,9 +30,8 @@ notifications:
   email:
     recipients:
       - tomas.mikkelsen@aoe.com
-    # Both are default values.
-    on_success: change
-    on_failure: always
+    on_success: never
+    on_failure: never
 
 sudo: false
 
@@ -63,6 +63,10 @@ before_script:
   # Restore composer.json
   - git checkout composer.json
   - export TYPO3_PATH_WEB=$PWD/.Build/Web
+  # Locating UnitTests.xml
+  - export "UNIT_XML"=`find . -name 'UnitTests.xml' -type f`
+  # Location FunctionalTests.xml
+  - export "FUNCTIONAL_XML"=`find . -name 'FunctionalTests.xml' -type f`
 
 script:
   - >
@@ -72,7 +76,7 @@ script:
   - >
     echo;
     echo "Running php lint";
-    find . -name \*.php ! -path "./.Build/*" ! -path "./scripts/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
+    find . -name \*.php ! -path "./.Build/*" ! -path "./scripts/*" ! -path "./typo3_src/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;
   - >
     echo;
     echo "Running JavaScript lint";
@@ -86,13 +90,13 @@ script:
     if [[ "$COVERAGE" == "0" ]]; then
       echo;
       echo "Running unit tests";
-      .Build/bin/phpunit --colors  -c .Build/vendor/typo3/cms/typo3/sysext/core/Build/UnitTests.xml Tests/Unit/
+      .Build/bin/phpunit --colors  -c $UNIT_XML Tests/Unit/
     fi
   - >
     if [[ "$COVERAGE" == "1" ]]; then
       echo;
       echo "Running unit tests";
-      .Build/bin/phpunit --coverage-clover=unittest-coverage.clover --colors -c .Build/vendor/typo3/cms/typo3/sysext/core/Build/UnitTests.xml Tests/Unit/
+      .Build/bin/phpunit --coverage-clover=unittest-coverage.clover --colors -c $UNIT_XML Tests/Unit/
     fi
   - >
     if [[ "$COVERAGE" == "1" ]]; then
@@ -109,5 +113,5 @@ script:
       export typo3DatabaseHost="localhost";
       export typo3DatabaseUsername="root";
       export typo3DatabasePassword="";
-      find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo "Running functional test suite {}"; .Build/bin/phpunit --colors  -c .Build/vendor/typo3/cms/typo3/sysext/core/Build/FunctionalTests.xml {}'
+      find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo "Running functional test suite {}"; .Build/bin/phpunit --colors  -c $FUNCTIONAL_XML {}'
     fi
