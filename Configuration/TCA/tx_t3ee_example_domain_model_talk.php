@@ -21,10 +21,10 @@ $GLOBALS['TCA']['tx_t3eeexample_domain_model_talk'] = array(
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('t3ee_example') . 'Resources/Public/Icons/tx_t3eeexample_domain_model_talk.png'
 	),
 	'interface' => array(
-		'showRecordFieldList' => 'name, date_time, speaker',
+		'showRecordFieldList' => 'name, date, speaker',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'name, date_time, speaker'),
+		'1' => array('showitem' => 'name, date, speaker'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -76,9 +76,9 @@ $GLOBALS['TCA']['tx_t3eeexample_domain_model_talk'] = array(
 				'eval' => 'required'
 			),
 		),
-		'date_time' => array(
+		'date' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:t3ee_example/Resources/Private/Language/Backend/Tca.xlf:tx_t3eeexample_domain_model_talk.date_time',
+			'label' => 'LLL:EXT:t3ee_example/Resources/Private/Language/Backend/Tca.xlf:tx_t3eeexample_domain_model_talk.date',
 			'config' => array(
 				'type' => 'input',
 				'size' => 13,

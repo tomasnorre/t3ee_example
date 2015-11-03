@@ -15,7 +15,7 @@ CREATE TABLE tx_t3eeexample_domain_model_talk (
 	endtime int(11) unsigned DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
-	date_time int(11) DEFAULT '0' NOT NULL,
+	date int(11) DEFAULT '0' NOT NULL,
 	speaker int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),

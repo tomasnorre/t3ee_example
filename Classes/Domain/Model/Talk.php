@@ -15,7 +15,7 @@ class Talk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @var int
 	 */
-	protected $date_time = 0;
+	protected $date = 0;
 
 	/**
 	 * @var \TNM\T3eeExample\Domain\Model\Speaker
@@ -39,15 +39,15 @@ class Talk extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @return int
 	 */
-	public function getDateTime() {
-		return $this->date_time;
+	public function getDate() {
+		return $this->date;
 	}
 
 	/**
-	 * @param int $dateTime
+	 * @param int $date
 	 */
-	public function setDateTime($dateTime) {
-		$this->date_time = $dateTime;
+	public function setDate($date) {
+		$this->date = $date;
 	}
 
 	/**

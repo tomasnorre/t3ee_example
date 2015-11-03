@@ -1,0 +1,15 @@
+##########################################
+#
+#	Configuration of EXT:t3ee_example
+#
+
+plugin.tx_t3eeexample {
+    view {
+        templateRootPaths = EXT:t3ee_example/Resources/Private/Templates/
+        partialRootPaths = EXT:t3ee_example/Resources/Private/Partials/
+        layoutRootPaths = EXT:t3ee_example/Resources/Private/Layouts/
+    }
+    persistence {
+        storagePid =
+    }
+}

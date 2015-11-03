@@ -1,4 +1,10 @@
 <f:layout name="General" />
 <f:section name="content">
-	<f:debug>{talks}</f:debug>
+	<f:for each="{talks}" as="talk">
+		<div class="talkItem">
+			<div class="talk">{talk.name}</div>
+			<div class="date"><f:format.date date="{talk.date}" format="d.m.y H:i" /></div>
+			<div class="speaker">{talk.speaker.name}</div>
+		</div>
+	</f:for>
 </f:section>

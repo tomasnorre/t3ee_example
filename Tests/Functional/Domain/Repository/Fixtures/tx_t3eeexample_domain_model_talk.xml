@@ -4,14 +4,14 @@
 		<uid>23</uid>
 		<pid>345</pid>
 		<name>My life in Springfield</name>
-		<date_time>1445538625</date_time>
+		<date>1445538625</date>
 		<speaker>1</speaker>
 	</tx_t3eeexample_domain_model_talk>
 	<tx_t3eeexample_domain_model_talk>
 		<uid>45</uid>
 		<pid>345</pid>
 		<name>Simpsons The Movie - With my eyes</name>
-		<date_time>1445538625</date_time>
+		<date>1445538625</date>
 		<speaker>2</speaker>
 	</tx_t3eeexample_domain_model_talk>
 </dataset>

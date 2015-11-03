@@ -1,8 +1,6 @@
 <?php
 namespace TNM\T3eeExample\Controller;
 
-use TNM\T3eeExample\Domain\Repository\TalkRepository;
-
 /**
  * Class TalkController
  * @package TNM\T3eeExample\Controller
@@ -10,7 +8,8 @@ use TNM\T3eeExample\Domain\Repository\TalkRepository;
 class TalkController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController {
 
 	/**
-	 * @var TalkRepository
+	 * @var \TNM\T3eeExample\Domain\Repository\TalkRepository
+	 * @inject
 	 */
 	protected $talkRepository;
 
