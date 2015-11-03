@@ -5,9 +5,9 @@
 
 plugin.tx_t3eeexample {
     view {
-        templateRootPaths = {$plugin.tx_t3eeexample.view.templateRootPath}
-        partialRootPaths = {$plugin.tx_t3eeexample.view.partialRootPath}
-        layoutRootPaths = {$plugin.tx_t3eeexample.view.layoutRootPath}
+        templateRootPath = {$plugin.tx_t3eeexample.view.templateRootPaths}
+        partialRootPath = {$plugin.tx_t3eeexample.view.partialRootPaths}
+        layoutRootPath = {$plugin.tx_t3eeexample.view.layoutRootPaths}
     }
     persistence {
         storagePid = {$plugin.tx_t3eeexample.persistence.storagePid}

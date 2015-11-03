@@ -85,7 +85,7 @@ script:
   - >
     echo;
     echo "Running TypoScript lint";
-    find Configuration/TypoScript/ -name '*.ts' -type f | xargs scripts/tslint/./typoscript-lint -e -c Misc/Validation/tslint.yml
+    find Configuration/TypoScript/ -name '*.txt' -type f | xargs scripts/tslint/./typoscript-lint -e -c Misc/Validation/tslint.yml
   - >
     if [[ "$COVERAGE" == "0" ]]; then
       echo;

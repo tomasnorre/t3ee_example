@@ -38,7 +38,7 @@ class TalkTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	public function getDateTimeReturnsInitialValueForInteger() {
 		$this->assertSame(
 			0,
-			$this->subject->getDateTime()
+			$this->subject->getDate()
 		);
 	}
 
@@ -65,13 +65,13 @@ class TalkTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function setDateTimeReturnsDateTime() {
-		$dateTime = 1445538625;
-		$this->subject->setDateTime($dateTime);
+	public function setDateReturnsDate() {
+		$date = 1445538625;
+		$this->subject->setDate($date);
 
 		$this->assertSame(
-			$dateTime,
-			$this->subject->getDateTime()
+			$date,
+			$this->subject->getDate()
 		);
 	}
 
