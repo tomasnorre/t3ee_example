@@ -1,92 +1,97 @@
 <?php
+
 namespace TNM\T3eeExample\Tests\Unit\Domain\Model;
 
 use TNM\T3eeExample\Domain\Model\Speaker;
 use TNM\T3eeExample\Domain\Model\Talk;
 
 /**
- * Class TalkTest
- * @package TNM\T3eeExample\Tests\Unit\Domain\Model
+ * Class TalkTest.
  */
-class TalkTest extends \TYPO3\CMS\Core\Tests\UnitTestCase {
+class TalkTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
+{
+    /**
+     * @var Talk
+     */
+    protected $subject;
 
-	/**
-	 * @var Talk
-	 */
-	protected $subject;
+    /**
+     */
+    public function setUP()
+    {
+        $this->subject = new Talk();
+    }
 
-	/**
-	 * @return void
-	 */
-	public function setUP() {
-		$this->subject = new Talk();
-	}
+    /**
+     * @test
+     */
+    public function getTalkNameReturnsInitialValueForString()
+    {
+        $this->assertSame(
+            '',
+            $this->subject->getName()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function getTalkNameReturnsInitialValueForString() {
-		$this->assertSame(
-			'',
-			$this->subject->getName()
-		);
-	}
+    /**
+     * @test
+     */
+    public function getDateTimeReturnsInitialValueForInteger()
+    {
+        $this->assertSame(
+            0,
+            $this->subject->getDate()
+        );
+    }
 
-	/**
-	 * @test
-	 */
-	public function getDateTimeReturnsInitialValueForInteger() {
-		$this->assertSame(
-			0,
-			$this->subject->getDate()
-		);
-	}
+    /**
+     * @test
+     */
+    public function getSpeakerReturnsInitialValueNull()
+    {
+        $this->assertNull($this->subject->getSpeaker());
+    }
 
-	/**
-	 * @test
-	 */
-	public function getSpeakerReturnsInitialValueNull() {
-		$this->assertNull($this->subject->getSpeaker());
-	}
+    /**
+     * @test
+     */
+    public function setNameReturnsName()
+    {
+        $name = 'Default Talk';
+        $this->subject->setName($name);
 
-	/**
-	 * @test
-	 */
-	public function setNameReturnsName() {
-		$name = 'Default Talk';
-		$this->subject->setName($name);
+        $this->assertSame(
+            $name,
+            $this->subject->getName()
+        );
+    }
 
-		$this->assertSame(
-			$name,
-			$this->subject->getName()
-		);
-	}
+    /**
+     * @test
+     */
+    public function setDateReturnsDate()
+    {
+        $date = 1445538625;
+        $this->subject->setDate($date);
 
-	/**
-	 * @test
-	 */
-	public function setDateReturnsDate() {
-		$date = 1445538625;
-		$this->subject->setDate($date);
+        $this->assertSame(
+            $date,
+            $this->subject->getDate()
+        );
+    }
 
-		$this->assertSame(
-			$date,
-			$this->subject->getDate()
-		);
-	}
+    /**
+     * @test
+     */
+    public function setSpeakerReturnsSpeaker()
+    {
+        $name = 'Tomas Norre Mikkelsen';
+        $speaker = new Speaker($name);
+        $this->subject->setSpeaker($speaker);
 
-	/**
-	 * @test
-	 */
-	public function setSpeakerReturnsSpeaker() {
-		$name = 'Tomas Norre Mikkelsen';
-		$speaker = new Speaker($name);
-		$this->subject->setSpeaker($speaker);
-
-		$this->assertSame(
-			$name,
-			$this->subject->getSpeaker()->getName()
-		);
-	}
-
+        $this->assertSame(
+            $name,
+            $this->subject->getSpeaker()->getName()
+        );
+    }
 }
