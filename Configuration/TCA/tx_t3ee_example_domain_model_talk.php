@@ -18,7 +18,7 @@ $GLOBALS['TCA']['tx_t3eeexample_domain_model_talk'] = array(
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ),
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('t3ee_example').'Resources/Public/Icons/tx_t3eeexample_domain_model_talk.png',
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('t3ee_example') . 'Resources/Public/Icons/tx_t3eeexample_domain_model_talk.png',
     ),
     'interface' => array(
         'showRecordFieldList' => 'name, date, speaker',
