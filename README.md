@@ -7,3 +7,8 @@ t3ee_example
 
 This is a small example "extension", for demostration of the possibilities with Travis CI and Scrutnizer.
 
+Video & Slides
+==============
+Video: (https://youtu.be/_hCOIxlxb8k)
+Slides: (http://www.slideshare.net/aoepeople/extension-development-the-cloud-is-the-limit-t3ee15)
+
