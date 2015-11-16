@@ -9,6 +9,6 @@ This is a small example "extension", for demostration of the possibilities with 
 
 Video & Slides
 ==============
-Video: (https://youtu.be/_hCOIxlxb8k)
-Slides: (http://www.slideshare.net/aoepeople/extension-development-the-cloud-is-the-limit-t3ee15)
+Video: https://youtu.be/_hCOIxlxb8k
+Slides: http://www.slideshare.net/aoepeople/extension-development-the-cloud-is-the-limit-t3ee15
 
