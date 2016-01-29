@@ -12,8 +12,8 @@ php:
   - hhvm
 
 env:
-  - TYPO3_VERSION=6.2.15 COVERAGE=0
-  - TYPO3_VERSION=7.6 COVERAGE=0
+  - TYPO3_VERSION=6.2.17 COVERAGE=0
+  - TYPO3_VERSION=7.6.2 COVERAGE=0
   - TYPO3_VERSION=dev-master COVERAGE=0
 
 matrix:
@@ -24,7 +24,7 @@ matrix:
       php: 5.4
   include:
     - php: 5.5
-      env: TYPO3_VERSION=7.6 COVERAGE=1
+      env: TYPO3_VERSION=7.6.2 COVERAGE=1
   allow_failures:
     - env: TYPO3_VERSION=dev-master COVERAGE=0
     - php: 7.0
