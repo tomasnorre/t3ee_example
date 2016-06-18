@@ -10,6 +10,6 @@ plugin.tx_t3eeexample {
         layoutRootPaths = EXT:t3ee_example/Resources/Private/Layouts/
     }
     persistence {
-        storagePid =
+        storagePid = 100
     }
 }
